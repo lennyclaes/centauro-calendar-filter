@@ -1,0 +1,11 @@
+{
+  "name": "ugent-calendar",
+  "version": "0.0.1",
+  "description": "CLI to filter out your group in the UGent Centauro Calendar and export to iCalendar.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Lenny Claes",
+  "license": "ISC"
+}

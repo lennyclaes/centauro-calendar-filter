@@ -106,6 +106,6 @@ function buildNewFile() {
     fileContents += 'END:VCALENDAR';
     fs.writeFile(resultFile, fileContents, (err) => {
         if (err) throw err;
-        console.log('\x1b[32mSuccess\x1b[0m You can see your file at: ' + resultFile);
+        console.log('\x1b[32mSUCCESS\x1b[0m You can see your file at: ' + resultFile);
     })
 }

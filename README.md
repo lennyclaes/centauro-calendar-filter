@@ -26,6 +26,10 @@ This program is only available as a CLI at the moment. There will be a website f
 node app.js [path to ical/ics file] [path to output new file] [your group number]
 ```
 
+### 4. Import the file in your calendar app of choice
+
+You can now import the file in any calendar app that supports the iCalendar format. You will need to look this up for your app of choice.
+
 ## Contact
 
 With any problems or questions, you can always contact me by mail. [lenny@lennyclaes.be](mailto:lenny@lennyclaes.be?SUBJECT=centauro-calendar-filter) (Dutch and English)

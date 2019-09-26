@@ -2,9 +2,13 @@ const fs = require('fs');
 
 const params = process.argv.slice(2);
 
-const file = params[0] || null;
-const resultFile =  params[1] || null;
+const file = params[0] || showError('Missing original file: No file was specified.\nYour command should look like: node app.js [path/to/original/file] [path/to/new/file] [your group]');
+const resultFile =  params[1] || showError('Missing output file: No file was specified.\nYour command should look like: node app.js [path/to/original/file] [path/to/new/file] [your group]');
 const toFilter = params[2] || 1;
+
+if (params[2] == null) {
+    showInfo('No group was specified. Default is 1');
+}
 
 const metadata = [];
 const vEvents = [];
@@ -12,6 +16,7 @@ const newvEvents = [];
 
 function showError(err) {
     console.log(`\x1b[31mERROR:\x1b[0m ${err}`);
+    process.exit();
 }
 
 function showInfo(info) {
@@ -50,6 +55,8 @@ function splitData(data) {
                 newvEvent = [];
                 // status = 0;
             }
+        } else {
+            showError('The file is not in iCalendar format');
         }
     }
     vEvents.forEach((ve, i) => {
@@ -105,7 +112,9 @@ function buildNewFile() {
     });
     fileContents += 'END:VCALENDAR';
     fs.writeFile(resultFile, fileContents, (err) => {
-        if (err) throw err;
+        if (err) {
+            showError('Something went wrong\nPlease notify me by mail (lenny@lennyclaes.be) with the details below\n', err);
+        };
         console.log('\x1b[32mSUCCESS\x1b[0m You can see your file at: ' + resultFile);
     })
 }

@@ -1,6 +1,6 @@
 {
   "name": "centauro-calendar-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to filter out your group in the UGent Centauro Calendar and export to iCalendar.",
   "main": "app.js",
   "scripts": {
